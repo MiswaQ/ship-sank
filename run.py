@@ -1,1 +1,1 @@
-# Write code here!
+from random import randint
