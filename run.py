@@ -1,14 +1,23 @@
 from random import randint
 
 
-def board_print():
-    print('0123456789')
-    for x in range(10):
-        print(x, '_'*10)
+def player_board():
+    print('  Sink_Sank_Ship!')
+    print('      Player')
+    print('  0 1 2 3 4 5 6 7')
+    for x in range(8):
+        print(x, '_ '*8)
+
+def computer_board():
+    print('      computer')
+    print('  0 1 2 3 4 5 6 7')
+    for x in range(8):
+        print(x, '_ '*8)
 
 
 
 
 
 
-board_print()
+player_board()
+computer_board()
