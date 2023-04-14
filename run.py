@@ -10,7 +10,7 @@ def start_game():
     print(' <>'*14)
     print(' <>         Welcome to Ship Sank!       <>')
     print(' <>  Sink the opponents ship!           <>')
-    print(f' <>  Board Size: {possibility}                     <>')
+    print(f' <>  Board Size: {possibility}                    <>')
     print(f' <>  Num of ships: {ships}                    <>')
     print(' <>  Chose between numbers: 00 to 99!   <>')
     print(' <>  One point for a hit!               <>')
@@ -23,19 +23,16 @@ def start_game():
             continue
         else:
             break
-    print(f'Welcome to the game! {player_name}!\n')
+    print(f'   Welcome to the game! {player_name}!\n')
 
-    def player_board():
-        print('     Sink_Sank_Ship!')
-        print(f'         {player_name}')
+    def player_board(hit, miss, sank):
+        print('         Sink_Sank_Ship!')
+        print(f'             {player_name}')
         print('   0  1  2  3  4  5  6  7  8  9')
 
        
         # To be able to change the symbols when hit and miss # we will add one more loop!
-        # To know where we hit we will add place and hit/miss
         place = 0
-        hit = [22]
-        miss = [21]
         for x in range(10):
             row = ''
             for y in range(10):
@@ -44,13 +41,15 @@ def start_game():
                     symb = ' H '
                 elif place in miss:
                     symb = ' M '
+                elif place in sank:
+                    symb = ' X '
                 row = row + symb
                 place = place + 1
             print(x,row)
-    player_board()
+    player_board(hit, miss, sank)
 
     def computer_board():
-        print('\n         Computer')
+        print('\n             Computer')
         print('   0  1  2  3  4  5  6  7  8  9')
         for x in range(10):
             row = ''
@@ -61,6 +60,9 @@ def start_game():
     computer_board()
 
 
+hit = [34,23,1,2,11]
+miss = [89,44,12]
+sank = [99,00]
 
 start_game()
 
