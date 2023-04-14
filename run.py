@@ -16,7 +16,14 @@ def start_game():
     print(' <>  One point for a hit!               <>')
     print(f' <>  First to {ships} wins!                   <>')
     print(' <>'*14)
-    player_name = input('Please enter your name here:')
+    while True:
+        player_name = input('Please enter your name here:')
+        if not player_name:
+            print('You have to enter a valid user name. Try again!\n')
+            continue
+        else:
+            break
+    print(f'Welcome to the game! {player_name}!\n')
 
     def player_board():
         print('  Sink_Sank_Ship!')
@@ -24,7 +31,6 @@ def start_game():
         print('  0 1 2 3 4 5 6 7')
         for x in range(8):
             print(x, '@ '*8)
-    print('\n')
     player_board()
 
     def computer_board():
@@ -32,7 +38,6 @@ def start_game():
         print('  0 1 2 3 4 5 6 7')
         for x in range(8):
             print(x, '@ '*8)
-    print('\n')
     computer_board()
 
 
