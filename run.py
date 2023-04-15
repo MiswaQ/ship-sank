@@ -48,21 +48,35 @@ def start_game():
             print(x,row)
     player_board(hit, miss, sank)
 
-    def computer_board():
-        print('\n             Computer')
-        print('   0  1  2  3  4  5  6  7  8  9')
-        for x in range(10):
-            row = ''
-            for y in range(10):
-                symb = ' @ '
-                row = row + symb
-            print(x,row)
-    computer_board()
+def try_shot():
+    
+    yes = 'n'
+    while yes == 'n':
+        try:
+            shot = input('Please Enter Your Guess: ')
+            shot = int(shot)
+            if shot < 0 or shot > 99:
+                print('Wrong number entry. Please try again!')
+            else:
+                yes = 'y'
+                break
+        except:
+            print('Wrong entry! Try again!')
+
+    return shot
 
 
-hit = [34,23,1,2,11]
-miss = [89,44,12]
-sank = [99,00]
 
-start_game()
+
+
+
+hit = []
+miss = []
+sank = []
+
+def main():
+    start_game()
+    try_shot()
+
+main()
 
