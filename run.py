@@ -1,5 +1,6 @@
 from random import randint
 
+
 def start_game():
     '''
     This will be the first page user sees
@@ -24,8 +25,13 @@ def start_game():
         else:
             break
     print(f'   Welcome to the game! {player_name}!\n')
+start_game()
 
-    def player_board(hit, miss, sank):
+hit = [34,23,1,2,11]
+miss = [89,44,12]
+sank = [99,00]
+
+def player_board(hit, miss, sank):
         print('         Sink_Sank_Ship!')
         print(f'             {player_name}')
         print('   0  1  2  3  4  5  6  7  8  9')
@@ -46,23 +52,22 @@ def start_game():
                 row = row + symb
                 place = place + 1
             print(x,row)
-    player_board(hit, miss, sank)
 
-    def computer_board():
-        print('\n             Computer')
-        print('   0  1  2  3  4  5  6  7  8  9')
-        for x in range(10):
-            row = ''
-            for y in range(10):
-                symb = ' @ '
-                row = row + symb
-            print(x,row)
-    computer_board()
+def place_ships():
+    pass
+    # Add 5 values to the ships array
+
+def get_players_choice():
+    pass
+    # Choice
+
+def check_hits():
+    pass
+    # True if win and False if loose
+
+def run_game():
+    pass
+    # Loop until check hits returns True.
 
 
-hit = [34,23,1,2,11]
-miss = [89,44,12]
-sank = [99,00]
-
-start_game()
-
+player_board(hit, miss, sank)
