@@ -1,8 +1,9 @@
 from random import randint
 
-hit = [23,22,21]
-miss = [14,16,52]
-sank = [12,67,89]
+hit = [1]
+miss = [23]
+sank = [42]
+boat = [25]
 passed = hit + miss + sank
 
 def start_game():
@@ -40,7 +41,7 @@ def player_board(hit, miss, sank):
     for x in range(10):
         row = ''
         for y in range(10):
-            symb = ' @ '
+            symb = ' - '
             if place in hit:
                 symb = ' H '
             elif place in miss:
@@ -70,8 +71,16 @@ def get_player_choice(passed):
 
     return shot
 
-def place_ship():
-    pass
+def place_ship(boat):
+    for boats in range(100):
+        boat = randint(0,99)
+        while boat == ' O ':
+            boat = randint(0,99)
+        boat = ' O '
+    print(boats,boat)
+
+
+
     # Add 5 values to the ship array
 
 def check_hits():
@@ -86,10 +95,10 @@ def run_game():
 
 def main():
     start_game()
+    place_ship(boat)
     player_board(hit, miss, sank)
     shot = get_player_choice(passed)
 
 
 
 main()
-
