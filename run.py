@@ -1,6 +1,11 @@
 from random import randint
 
 
+hit = [23,22,21]
+miss = [14,16,52]
+sank = [12,67,89]
+passed = hit + miss + sank
+
 def start_game():
     '''
     This will be the first page user sees
@@ -25,49 +30,62 @@ def start_game():
         else:
             break
     print(f'   Welcome to the game! {player_name}!\n')
-start_game()
-
-hit = [34,23,1,2,11]
-miss = [89,44,12]
-sank = [99,00]
 
 def player_board(hit, miss, sank):
-        print('         Sink_Sank_Ship!')
-        print(f'             {player_name}')
-        print('   0  1  2  3  4  5  6  7  8  9')
+    print('         Sink_Sank_Ship!')
+    # print(f'             {player_name}')
+    print('   0  1  2  3  4  5  6  7  8  9')
 
        
-        # To be able to change the symbols when hit and miss # we will add one more loop!
-        place = 0
-        for x in range(10):
-            row = ''
-            for y in range(10):
-                symb = ' @ '
-                if place in hit:
-                    symb = ' H '
-                elif place in miss:
-                    symb = ' M '
-                elif place in sank:
-                    symb = ' X '
-                row = row + symb
-                place = place + 1
-            print(x,row)
-
-def place_ships():
-    pass
-    # Add 5 values to the ships array
-
-def get_players_choice():
-    pass
-    # Choice
-
-def check_hits():
-    pass
-    # True if win and False if loose
-
-def run_game():
-    pass
-    # Loop until check hits returns True.
+    # To be able to change the symbols when hit and miss # we will add one more loop!
+    place = 0
+    for x in range(10):
+        row = ''
+        for y in range(10):
+            symb = ' @ '
+            if place in hit:
+                symb = ' H '
+            elif place in miss:
+                symb = ' M '
+            elif place in sank:
+                symb = ' X '
+            row = row + symb
+            place = place + 1
+        print(x,row)
 
 
-player_board(hit, miss, sank)
+def try_shot(passed):
+    
+    yes = 'n'
+    while yes == 'n':
+        try:
+            shot = input('Please Enter Your Guess: ')
+            shot = int(shot)
+            if shot < 0 or shot > 99:
+                print('Wrong number entry. Please try again!')
+            elif shot in passed:
+                print('Already tryied that! Please try again')
+            else:
+                yes = 'y'
+                break
+        except:
+            print('Wrong entry! Try again!')
+
+    return shot
+
+
+
+
+
+
+
+
+def main():
+    start_game()
+    player_board(hit, miss, sank)
+    shot = try_shot(passed)
+
+
+
+main()
+
