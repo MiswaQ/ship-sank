@@ -1,6 +1,5 @@
 from random import randint
 
-
 hit = [23,22,21]
 miss = [14,16,52]
 sank = [12,67,89]
@@ -32,11 +31,10 @@ def start_game():
     print(f'   Welcome to the game! {player_name}!\n')
 
 def player_board(hit, miss, sank):
+    
     print('         Sink_Sank_Ship!')
     # print(f'             {player_name}')
     print('   0  1  2  3  4  5  6  7  8  9')
-
-       
     # To be able to change the symbols when hit and miss # we will add one more loop!
     place = 0
     for x in range(10):
@@ -53,8 +51,7 @@ def player_board(hit, miss, sank):
             place = place + 1
         print(x,row)
 
-
-def try_shot(passed):
+def get_player_choice(passed):
     
     yes = 'n'
     while yes == 'n':
@@ -73,17 +70,24 @@ def try_shot(passed):
 
     return shot
 
+def place_ship():
+    pass
+    # Add 5 values to the ship array
 
+def check_hits():
+    pass
+    # True if win, False if loose
 
-
-
+def run_game():
+    pass
+    # Loop until check hits returns True.
 
 
 
 def main():
     start_game()
     player_board(hit, miss, sank)
-    shot = try_shot(passed)
+    shot = get_player_choice(passed)
 
 
 
