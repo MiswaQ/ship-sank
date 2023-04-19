@@ -7,6 +7,7 @@ p_boat = []
 c_boat = []
 passed = hit + miss
 
+
 def start_game():
     '''
     This will be the first page user sees
@@ -31,6 +32,7 @@ def start_game():
         else:
             break
     print(f'   Welcome to the game! {player_name}!\n')
+
 
 def player_board(hit, miss, place_ship):
     
@@ -81,18 +83,26 @@ def get_player_choice(passed, p_boat, c_boat):
 
 def place_ship():
     
-    for x in range(5):
-        p_boat.append(randint(0,99))
+    user_ship_count = 0
+    while user_ship_count < 5:
+        r = randint(0,99)
+        if r in p_boat:
+            continue
+        else:
+            p_boat.append(r)
+            user_ship_count += 1
     print(p_boat)
 
-    for y in range(5):
-        c_boat.append(randint(0,99))
+    comp_ship_count = 0
+    while comp_ship_count < 5:
+        r = randint(0,99)
+        if r in c_boat:
+            continue
+        else:
+            c_boat.append(r)
+            comp_ship_count += 1
     print(c_boat)
         
-
-
-
-    # Add 5 values to the ship array
 
 def check_hits():
     pass
