@@ -2,10 +2,9 @@ from random import randint
 
 hit = [1]
 miss = [23]
-sank = [42]
 p_boat = []
 c_boat = []
-passed = hit + miss + sank
+passed = hit + miss
 
 def start_game():
     '''
@@ -32,7 +31,7 @@ def start_game():
             break
     print(f'   Welcome to the game! {player_name}!\n')
 
-def player_board(hit, miss, sank):
+def player_board(hit, miss):
     
     print('         Sink_Sank_Ship!')
     # print(f'             {player_name}')
@@ -47,8 +46,6 @@ def player_board(hit, miss, sank):
                 symb = ' H '
             elif place in miss:
                 symb = ' M '
-            elif place in sank:
-                symb = ' X '
             row = row + symb
             place = place + 1
         print(x,row)
@@ -100,7 +97,7 @@ def run_game():
 def main():
     start_game()
     place_ship()
-    player_board(hit, miss, sank)
+    player_board(hit, miss)
     shot = get_player_choice(passed)
 
 main()
