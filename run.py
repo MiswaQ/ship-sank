@@ -3,7 +3,8 @@ from random import randint
 hit = [1]
 miss = [23]
 sank = [42]
-boat = [25]
+p_boat = []
+c_boat = []
 passed = hit + miss + sank
 
 def start_game():
@@ -71,13 +72,16 @@ def get_player_choice(passed):
 
     return shot
 
-def place_ship(boat):
-    for boats in range(100):
-        boat = randint(0,99)
-        while boat == ' O ':
-            boat = randint(0,99)
-        boat = ' O '
-    print(boats,boat)
+def place_ship():
+    
+    for x in range(5):
+        p_boat.append(randint(0,99))
+    print(p_boat)
+
+    for y in range(5):
+        c_boat.append(randint(0,99))
+    print(c_boat)
+        
 
 
 
@@ -95,10 +99,8 @@ def run_game():
 
 def main():
     start_game()
-    place_ship(boat)
+    place_ship()
     player_board(hit, miss, sank)
     shot = get_player_choice(passed)
-
-
 
 main()
