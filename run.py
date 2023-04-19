@@ -1,7 +1,8 @@
 from random import randint
 
-hit = [1]
-miss = [23]
+
+hit = [2]
+miss = [1]
 p_boat = []
 c_boat = []
 passed = hit + miss
@@ -31,7 +32,7 @@ def start_game():
             break
     print(f'   Welcome to the game! {player_name}!\n')
 
-def player_board(hit, miss):
+def player_board(hit, miss, place_ship):
     
     print('         Sink_Sank_Ship!')
     # print(f'             {player_name}')
@@ -44,13 +45,18 @@ def player_board(hit, miss):
             symb = ' - '
             if place in hit:
                 symb = ' H '
+            elif place in p_boat:
+                symb = ' @ '
+            elif place in c_boat:
+                symb = ' O '
             elif place in miss:
                 symb = ' M '
             row = row + symb
             place = place + 1
         print(x,row)
+    
 
-def get_player_choice(passed):
+def get_player_choice(passed, p_boat, c_boat):
     
     yes = 'n'
     while yes == 'n':
@@ -60,7 +66,11 @@ def get_player_choice(passed):
             if shot < 0 or shot > 99:
                 print('Wrong number entry. Please try again!')
             elif shot in passed:
-                print('Already tryied that! Please try again')
+                print('Already tryied that! Please try again!')
+            elif shot in p_boat:
+                print('No suicide mission going on! Try again!')
+            elif shot in c_boat:
+                print('Bullzeye!')
             else:
                 yes = 'y'
                 break
@@ -97,7 +107,7 @@ def run_game():
 def main():
     start_game()
     place_ship()
-    player_board(hit, miss)
-    shot = get_player_choice(passed)
+    player_board(hit, miss, place_ship)
+    shot = get_player_choice(passed, p_boat, c_boat)
 
 main()
