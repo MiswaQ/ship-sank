@@ -1,8 +1,8 @@
 from random import randint
 
 
-hit = [2]
-miss = [1]
+hit = []
+miss = []
 p_boat = []
 c_boat = []
 occup = []
@@ -32,7 +32,7 @@ def start_game():
             continue
         else:
             break
-    print(f'   Welcome to the game! {player_name}!\n')
+    print(f'\n   Welcome to the game! {player_name}!\n')
 
 
 def player_board(hit, miss, place_ship):
@@ -69,23 +69,26 @@ def get_player_choice(passed, p_boat, c_boat):
     yes = 'n'
     while yes == 'n':
         try:
-            shot = input('Please Enter Your Guess: ')
+            shot = input('\n Please Enter Your Guess: ')
             shot = int(shot)
             if shot < 0 or shot > 99:
-                print('Wrong number entry. Please try again!')
+                print('\n Wrong number entry. Please try again!\n')
             elif shot in passed:
-                print('Already tryied that! Please try again!')
+                print('\n Already tryied that! Please try again!\n')
             elif shot in p_boat:
-                print('No suicide mission going on! Try again!')
+                print('\n No suicide mission going on! Try again!\n')
             elif shot in c_boat:
-                print('Bullzeye!')
-            else:
+                hit.append(shot)
+                print('\n Bullzeye!\n')
                 yes = 'y'
-                break
+            else:
+                miss.append(shot)
+                print('\n You Missed!\n')
+            break
         except:
-            print('Wrong entry! Try again!')
+            print('\n Wrong entry! Try again!\n')
+    player_board(hit, miss, place_ship)
 
-    return shot
 
 def place_ship():
     '''
@@ -133,14 +136,11 @@ def check_hits():
 
 def run_game():
     pass
-    # Loop until check hits returns True.
-
 
 
 def main():
     start_game()
     place_ship()
     player_board(hit, miss, place_ship)
-    shot = get_player_choice(passed, p_boat, c_boat)
-
+    shot = get_player_choice(passed, p_boat, c_boat) #, get_computer_choice(passed, p_boat, c_boat)
 main()
