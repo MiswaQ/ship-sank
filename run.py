@@ -87,7 +87,10 @@ def get_player_choice(passed, p_boat, c_boat):
             break
         except:
             print('\n Wrong entry! Try again!\n')
+            
     player_board(hit, miss, place_ship)
+    get_player_choice(passed, p_boat, c_boat
+    )
 
 
 def place_ship():
