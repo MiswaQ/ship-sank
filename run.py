@@ -63,29 +63,37 @@ def get_player_choice(passed, c_boat):
     '''
     Error checking choice made and giving a output.
     '''
-    yes = 'n'
-    while yes == 'n':
+    count = 0
+    while count < 4:
+        if count == 4:
+            break
         try:
             shot = input('\n Please Enter Your Guess: ')
             shot = int(shot)
+            count += 1
             if shot < 0 or shot > 99:
                 print('\n Wrong number entry. Please try again!\n')
+                player_board(hit, miss, place_ship)
             elif shot in passed:
                 print('\n Already tryied that! Please try again!\n')
+                player_board(hit, miss, place_ship)
             elif shot in c_boat:
                 hit.append(shot)
+                # count += 1
                 print('\n Bullzeye!\n')
-                yes = 'y'
+                player_board(hit, miss, place_ship)
             else:
                 miss.append(shot)
+                # count += 1
                 print('\n You Missed!\n')
-            break
+                player_board(hit, miss, place_ship)
         except:
             print('\n Wrong entry! Try again!\n')
-            
-    player_board(hit, miss, place_ship)
-    get_player_choice(passed, c_boat
-    )
+            player_board(hit, miss, place_ship)
+    print(f'\n Good job! 15 shots and you hit {hit}! \n')
+
+
+
 
 
 def place_ship():
@@ -109,4 +117,6 @@ def main():
     place_ship()
     player_board(hit, miss, place_ship)
     shot = get_player_choice(passed, c_boat)
+
+
 main()
