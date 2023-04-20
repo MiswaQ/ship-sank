@@ -5,6 +5,7 @@ hit = [2]
 miss = [1]
 p_boat = []
 c_boat = []
+occup = []
 passed = hit + miss
 
 
@@ -35,7 +36,10 @@ def start_game():
 
 
 def player_board(hit, miss, place_ship):
-    
+    '''
+    Check for hit miss and symbols to be placed when randomly chosen.
+    '''
+
     print('         Sink_Sank_Ship!')
     # print(f'             {player_name}')
     print('   0  1  2  3  4  5  6  7  8  9')
@@ -59,7 +63,9 @@ def player_board(hit, miss, place_ship):
     
 
 def get_player_choice(passed, p_boat, c_boat):
-    
+    '''
+    Error checking choice made and giving a output.
+    '''
     yes = 'n'
     while yes == 'n':
         try:
@@ -82,7 +88,12 @@ def get_player_choice(passed, p_boat, c_boat):
     return shot
 
 def place_ship():
-    
+    '''
+    Places boats randomly and also checks for duplicates.
+    '''
+   # occup = p_boat + c_boat # Checks to remove duplicates
+
+# Randomly adding player boats
     user_ship_count = 0
     while user_ship_count < 5:
         r = randint(0,99)
@@ -93,16 +104,28 @@ def place_ship():
             user_ship_count += 1
     print(p_boat)
 
+# Randomly adding computer boats
     comp_ship_count = 0
     while comp_ship_count < 5:
         r = randint(0,99)
         if r in c_boat:
             continue
+        elif c_boat == ' @ ':
+            continue
         else:
             c_boat.append(r)
             comp_ship_count += 1
     print(c_boat)
-        
+'''
+# Looks for duplicate
+    if r in occup:
+        p_boat.append(r)
+        user_ship_count += 1
+    
+    if r in occup:
+        c_boat.append(r)
+        comp_ship_count += 1
+'''   
 
 def check_hits():
     pass
