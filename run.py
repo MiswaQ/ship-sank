@@ -1,12 +1,9 @@
 from random import randint
 
-
 hit = []
 miss = []
 c_boat = []
-occup = []
 passed = []
-
 
 def start_game():
     '''
@@ -32,12 +29,10 @@ def start_game():
             break
     print(f'\n   Welcome to the game! {player_name}!\n')
 
-
-def player_board(hit, miss, place_ship):
+def player_board(place_ship):
     '''
     Check for hit miss and symbols to be placed when randomly chosen.
     '''
-
     print('         Sink_Sank_Ship!')
     print('   0  1  2  3  4  5  6  7  8  9')
     # To be able to change the symbols when hit and miss # we will add one more loop!
@@ -55,9 +50,8 @@ def player_board(hit, miss, place_ship):
             row = row + symb
             place = place + 1
         print(x,row)
-    
 
-def get_player_choice(passed, c_boat):
+def get_player_choice():
     '''
     Error checking choice made and giving a output.
     '''
@@ -71,29 +65,25 @@ def get_player_choice(passed, c_boat):
             count += 1
             if shot < 0 or shot > 99:
                 print('\n Wrong number entry. Please try again!\n')
-                player_board(hit, miss, place_ship)
+                player_board(place_ship)
             elif shot in passed:
                 print('\n Already tryied that! Please try again!\n')
-                player_board(hit, miss, place_ship)
+                player_board(place_ship)
             elif shot in c_boat:
                 hit.append(shot)
                 passed.append(shot)
                 print('\n Bullzeye!\n')
-                player_board(hit, miss, place_ship)
+                player_board(place_ship)
             else:
                 miss.append(shot)
                 passed.append(shot)
                 print('\n You Missed!\n')
-                player_board(hit, miss, place_ship)
+                player_board(place_ship)
         except:
                 print('\n Wrong entry! Try again!\n')
-                player_board(hit, miss, place_ship)
+                player_board(place_ship)
 
     print(f'\n Game Over! 7 shots and you hit {hit}! \n')
-
-
-
-
 
 def place_ship():
     '''
@@ -112,8 +102,7 @@ def place_ship():
 def main():
     start_game()
     place_ship()
-    player_board(hit, miss, place_ship)
-    shot = get_player_choice(passed, c_boat)
-
+    player_board(place_ship)
+    shot = get_player_choice()
 
 main()
