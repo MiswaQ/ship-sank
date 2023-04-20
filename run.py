@@ -3,7 +3,6 @@ from random import randint
 
 hit = []
 miss = []
-p_boat = []
 c_boat = []
 occup = []
 passed = hit + miss
@@ -18,12 +17,12 @@ def start_game():
     ships = 5
     print(' <>'*14)
     print(' <>         Welcome to Ship Sank!       <>')
-    print(' <>  Sink the opponents ship!           <>')
+    print(' <>  Sink the computers ship!           <>')
     print(f' <>  Board Size: {possibility}                    <>')
     print(f' <>  Num of ships: {ships}                    <>')
     print(' <>  Chose between numbers: 00 to 99!   <>')
     print(' <>  One point for a hit!               <>')
-    print(f' <>  First to {ships} wins!                   <>')
+    print(f' <>  Shoot {ships} ships to  wins!            <>')
     print(' <>'*14)
     while True:
         player_name = input('Please enter your name here:')
@@ -51,8 +50,6 @@ def player_board(hit, miss, place_ship):
             symb = ' - '
             if place in hit:
                 symb = ' H '
-            elif place in p_boat:
-                symb = ' @ '
             elif place in c_boat:
                 symb = ' O '
             elif place in miss:
@@ -62,7 +59,7 @@ def player_board(hit, miss, place_ship):
         print(x,row)
     
 
-def get_player_choice(passed, p_boat, c_boat):
+def get_player_choice(passed, c_boat):
     '''
     Error checking choice made and giving a output.
     '''
@@ -75,8 +72,6 @@ def get_player_choice(passed, p_boat, c_boat):
                 print('\n Wrong number entry. Please try again!\n')
             elif shot in passed:
                 print('\n Already tryied that! Please try again!\n')
-            elif shot in p_boat:
-                print('\n No suicide mission going on! Try again!\n')
             elif shot in c_boat:
                 hit.append(shot)
                 print('\n Bullzeye!\n')
@@ -89,28 +84,14 @@ def get_player_choice(passed, p_boat, c_boat):
             print('\n Wrong entry! Try again!\n')
             
     player_board(hit, miss, place_ship)
-    get_player_choice(passed, p_boat, c_boat
+    get_player_choice(passed, c_boat
     )
 
 
 def place_ship():
     '''
-    Places boats randomly and also checks for duplicates.
+    Add random computer boats
     '''
-   # occup = p_boat + c_boat # Checks to remove duplicates
-
-# Randomly adding player boats
-    user_ship_count = 0
-    while user_ship_count < 5:
-        r = randint(0,99)
-        if r in p_boat:
-            continue
-        else:
-            p_boat.append(r)
-            user_ship_count += 1
-    print(p_boat)
-
-# Randomly adding computer boats
     comp_ship_count = 0
     while comp_ship_count < 5:
         r = randint(0,99)
@@ -122,28 +103,10 @@ def place_ship():
             c_boat.append(r)
             comp_ship_count += 1
     print(c_boat)
-'''
-# Looks for duplicate
-    if r in occup:
-        p_boat.append(r)
-        user_ship_count += 1
-    
-    if r in occup:
-        c_boat.append(r)
-        comp_ship_count += 1
-'''   
-
-def check_hits():
-    pass
-    # True if win, False if loose
-
-def run_game():
-    pass
-
 
 def main():
     start_game()
     place_ship()
     player_board(hit, miss, place_ship)
-    shot = get_player_choice(passed, p_boat, c_boat) #, get_computer_choice(passed, p_boat, c_boat)
+    shot = get_player_choice(passed, c_boat)
 main()
