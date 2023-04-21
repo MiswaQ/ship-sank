@@ -1,9 +1,9 @@
 from random import randint
 
 hit = []
-miss = []
 c_boat = []
 passed = []
+miss = []
 
 def start_game():
     '''
@@ -35,7 +35,6 @@ def player_board(place_ship):
     '''
     print('         Sink_Sank_Ship!')
     print('   0  1  2  3  4  5  6  7  8  9')
-    # To be able to change the symbols when hit and miss # we will add one more loop!
     place = 0
     for x in range(10):
         row = ''
@@ -65,25 +64,25 @@ def get_player_choice():
             count += 1
             if shot < 0 or shot > 99:
                 print('\n Wrong number entry. Please try again!\n')
-                player_board(place_ship)
+                player_board(place_ship) # Each time it will show the updated board
             elif shot in passed:
                 print('\n Already tryied that! Please try again!\n')
-                player_board(place_ship)
+                player_board(place_ship) # Each time it will show the updated board.
             elif shot in c_boat:
-                hit.append(shot)
-                passed.append(shot)
+                hit.append(shot) # Appendng to see in hit array, how many and times user got Bullseye!
+                passed.append(shot) # Appending the tryes to passed array to uses to check if tryed allready!
                 print('\n Bullzeye!\n')
-                player_board(place_ship)
+                player_board(place_ship) # Each time it will show the updated board.
             else:
                 miss.append(shot)
-                passed.append(shot)
+                passed.append(shot) # Appending the tryes to passed array to uses to check if tryed allready!
                 print('\n You Missed!\n')
-                player_board(place_ship)
+                player_board(place_ship) # Each time it will show the updated board.
         except:
                 print('\n Wrong entry! Try again!\n')
-                player_board(place_ship)
+                player_board(place_ship) # Each time it will show the updated board.
 
-    print(f'\n Game Over! 7 shots and you hit {hit}! \n')
+    print(f'\n Game Over! 7 shots and you hit {hit}! \n') # Finishing print to say Game Over and tell user the result!
 
 def place_ship():
     '''
