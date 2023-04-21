@@ -1,14 +1,19 @@
 from random import randint
 
+'''
+Global lists placed here,
+waiting to be called in the functions.
+'''
 hit = []
 c_boat = []
 passed = []
 miss = []
 
+
 def start_game():
     '''
-    This will be the first page user sees
-    where the player choses name. And starts the game.
+    This is the first page user will see.
+    Here the player choses name, and starts the game.
     '''
     possibility = 100
     ships = 5
@@ -29,6 +34,7 @@ def start_game():
             break
     print(f'\n   Welcome to the game! {player_name}!\n')
 
+
 def player_board(place_ship):
     '''
     Check for hit miss and symbols to be placed when randomly chosen.
@@ -43,12 +49,13 @@ def player_board(place_ship):
             if place in hit:
                 symb = ' H '
             elif place in c_boat:
-                symb = ' O '
+                symb = ' - '
             elif place in miss:
                 symb = ' M '
             row = row + symb
             place = place + 1
-        print(x,row)
+        print(x, row)
+
 
 def get_player_choice():
     '''
@@ -64,44 +71,49 @@ def get_player_choice():
             count += 1
             if shot < 0 or shot > 99:
                 print('\n Wrong number entry. Please try again!\n')
-                player_board(place_ship) # Each time it will show the updated board
+                player_board(place_ship)  # Reloads the updated board!
             elif shot in passed:
                 print('\n Already tryied that! Please try again!\n')
-                player_board(place_ship) # Each time it will show the updated board.
+                player_board(place_ship)
             elif shot in c_boat:
-                hit.append(shot) # Appendng to see in hit array, how many and times user got Bullseye!
-                passed.append(shot) # Appending the tryes to passed array to uses to check if tryed allready!
+                hit.append(shot)  # Appending to hit array, to show how many times user got Bullseye!
+                passed.append(shot)  # Appending to passed array to check duplicate tries.
                 print('\n Bullzeye!\n')
-                player_board(place_ship) # Each time it will show the updated board.
+                player_board(place_ship)
             else:
-                miss.append(shot)
-                passed.append(shot) # Appending the tryes to passed array to uses to check if tryed allready!
+                miss.append(shot)  # Appending  to miss array to show missed on board.
+                passed.append(shot)
                 print('\n You Missed!\n')
-                player_board(place_ship) # Each time it will show the updated board.
+                player_board(place_ship)
         except:
                 print('\n Wrong entry! Try again!\n')
-                player_board(place_ship) # Each time it will show the updated board.
+                player_board(place_ship)
 
-    print(f'\n Game Over! 7 shots and you hit {hit}! \n') # Finishing print to say Game Over and tell user the result!
+    print(f'\n Game Over! 7 shots and you hit the following targets: {hit}! \n')  # Finishing print to say Game Over and tell user the result!
+
 
 def place_ship():
     '''
-    Add random computer boats
+    Add random boats that the user will try to hit.
     '''
     comp_ship_count = 0
     while comp_ship_count < 5:
-        r = randint(0,99)
+        r = randint(0, 99)
         if r in c_boat:
             continue
         else:
             c_boat.append(r)
             comp_ship_count += 1
-    print(c_boat)
+
 
 def main():
+    '''
+    Here the functions will be called in the order they are loading up.
+    '''
     start_game()
     place_ship()
     player_board(place_ship)
     shot = get_player_choice()
+
 
 main()
