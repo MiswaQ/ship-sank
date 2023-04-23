@@ -66,7 +66,7 @@ def get_player_choice():
         if count == 7:
             break
         try:
-            shot = input('\n Please Enter Your Guess: ')
+            shot = input('\n Please Enter Your Guess: \n')
             shot = int(shot)
             count += 1
             if shot < 0 or shot > 99:
