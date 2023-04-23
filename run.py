@@ -73,23 +73,24 @@ def get_player_choice():
                 print('\n Wrong number entry. Please try again!\n')
                 player_board(place_ship)  # Reloads the updated board!
             elif shot in passed:
-                print('\n Already tryied that! Please try again!\n')
+                print('\n Already tryied that! \n')
                 player_board(place_ship)
             elif shot in c_boat:
-                hit.append(shot)  # Appending to hit array, to show how many times user got Bullseye!
-                passed.append(shot)  # Appending to passed array to check duplicate tries.
+                hit.append(shot)  # Appending to hit array.
+                passed.append(shot)  # Appending to passed array.
                 print('\n Bullzeye!\n')
                 player_board(place_ship)
             else:
-                miss.append(shot)  # Appending  to miss array to show missed on board.
+                miss.append(shot)  # Appending  to miss array.
                 passed.append(shot)
                 print('\n You Missed!\n')
                 player_board(place_ship)
         except:
-                print('\n Wrong entry! Try again!\n')
-                player_board(place_ship)
+            print('\n Wrong entry! \n')
+            player_board(place_ship)
 
-    print(f'\n Game Over! 7 shots and you hit the following targets: {hit}! \n')  # Finishing print to say Game Over and tell user the result!
+    # Finishing print to say Game Over and tell user the result!
+    print(f'\n Game Over! 7 shots and you hit the following targets:{hit}! \n')
 
 
 def place_ship():
