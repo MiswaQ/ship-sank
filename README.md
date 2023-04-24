@@ -8,6 +8,7 @@ The user will try to find and sink the 5 ships that are randomly placed on the b
 Each ship takes up one cell of the board.
 <br>
 <br>
+
 Here you can try out the game [Ship sank](https://ship-sank.herokuapp.com/).
 <br>
 <br>
@@ -16,6 +17,7 @@ Here you can try out the game [Ship sank](https://ship-sank.herokuapp.com/).
 <br>
 <br>
 <br>
+
 ## The rules of the game!
 <br>
 <br>
@@ -32,8 +34,49 @@ will get 100 choices to find the ships.
 <br>
 <br>
 <br>
-#### The game!
+
+### The game!
 <br>
 <br>
-The game starts and this is what you would see!<br>
+When the game starts and this is what you would see!
+<br>
+
 ![Screenshot of start-page.](/img/start.png)
+<br>
+<br>
+Enter user name!
+<br>
+
+![Please enter your name here.](/img/name.png)
+<br>
+<br>
+Welcome messege!
+<br>
+
+![Welcome...](/img/welcome.png)
+<br>
+<br>
+When the game starts and this is what you would see!
+<br>
+
+![Screenshot of start-page.](/img/start.png)
+<br>
+<br>
+When the game starts and this is what you would see!
+<br>
+
+![Screenshot of start-page.](/img/start.png)
+<br>
+<br>
+When the game starts and this is what you would see!
+<br>
+
+![Screenshot of start-page.](/img/start.png)
+<br>
+<br>
+When the game starts and this is what you would see!
+<br>
+
+![Screenshot of start-page.](/img/start.png)
+<br>
+<br>
