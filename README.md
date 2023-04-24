@@ -2,14 +2,17 @@
 <br>
 Ship-sank is a battleship game that is played in a Python terminal.
 It runs in Heroku!
-<br><br>
+<br>
+<br>
 The user will try to find and sink the 5 ships that are randomly placed on the board.
 Each ship takes up one cell of the board.
-<br><br>
+<br>
+<br>
 Here you can try out the game [Ship sank](https://ship-sank.herokuapp.com/).
-<br><br>
+<br>
+<br>
 
-![Screenshot of Am I Responsive page.]()
+![Screenshot of Am I Responsive page.](/img/amIresponsive.png)
 <br>
 <br>
 <br>
@@ -29,7 +32,8 @@ will get 100 choices to find the ships.
 <br>
 <br>
 <br>
-## The game!
+#### The game!
 <br>
 <br>
-The game starts and this is what you would see!
+The game starts and this is what you would see!<br>
+![Screenshot of start-page.](/img/start.png)
