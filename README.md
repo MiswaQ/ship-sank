@@ -71,12 +71,92 @@ Wrong Entry!
 If you enter invalid number!
 <br>
 
-![Screenshot of start-page.](/img/start.png)
+![Wrong number entry.](/img/wrongnumber.png)
 <br>
 <br>
-When the game starts and this is what you would see!
+If you miss your target!
 <br>
 
-![Screenshot of start-page.](/img/start.png)
+![If you miss the target.](/img/missed.png)
 <br>
 <br>
+When you hit your target!
+<br>
+
+![Bullzeye](/img/bullzeye.png)
+<br>
+<br>
+If you already tryed that cell!
+<br>
+
+![Already tryed that.](/img/already.png)
+<br>
+<br>
+When you hit or miss it will be shown at the board!
+<br>
+
+![The choosen cells will be marked.](/img/hitmiss.png)
+<br>
+<br>
+When the game is over this will be shown!
+<br>
+
+![Game over.](/img/gameover.png)
+<br>
+<br>
+<br>
+
+### Issues!
+<br>
+<br>
+
+I had a lot of issues with Code Anywhere from the start of this Project.<br>
+I sent a ticket to support in Code Anywhere and told them about what problems I got.<br>
+Because of those issues delaying the project for me I had to shorten the code!<br>
+<br><br>
+The Plan from the beginning was that I would have had two boards.<br>
+One for the user and one for the computer. So that the game would be player vs computer.<br>
+But as the problems with Code Anywhere took alot of my time and put some pressuar on me.<br>
+I had to change alot of structures that I had planned from the start.<br>
+<br><br>
+So if I would have had time.<br>
+The plan was to have two boards and ships in 2-3 cells. Hit Miss Sank that was why the name was choosen.
+<br>
+<br>
+<br>
+
+### Testing!
+<br>
+<br>
+
+I used [PEP](https://pep8ci.herokuapp.com//) testing and changed what needed to change.<br>
+But there is one error thats still there and its in line 88 " E722 do not use bare 'except' "<br>
+<br>
+<br>
+I have myself tested out the game and everything works as it should.
+<br>
+<br>
+
+### Credits!
+<br>
+<br>
+
+I got help from:
+    - [Stack Overflow](https://stackoverflow.com/)
+    - [w3schools](https://www.w3schools.com/)
+    - [Tutors](https://learn.codeinstitute.net/)
+<br>
+<br>
+
+### Deployment!
+<br>
+<br>
+
+##### This project was deployed using Heroku terminal.
+
+###### Steps to deploy:
+    1 Fork or clone this repository
+    2 Creat a new Heroku app
+    3 Set a buildbacks to Python and NodeJS in that order
+    4 Link the Heroku app to the repository
+    5 Click to Deploy
