@@ -56,19 +56,19 @@ Welcome messege!
 ![Welcome...](/img/welcome.png)
 <br>
 <br>
-When the game starts and this is what you would see!
+Enter your guess!
 <br>
 
-![Screenshot of start-page.](/img/start.png)
+![Please enter guess.](/img/guess.png)
 <br>
 <br>
-When the game starts and this is what you would see!
+Wrong Entry!
 <br>
 
-![Screenshot of start-page.](/img/start.png)
+![If you enter other then a numbers.](/img/wrongentry.png)
 <br>
 <br>
-When the game starts and this is what you would see!
+If you enter invalid number!
 <br>
 
 ![Screenshot of start-page.](/img/start.png)
